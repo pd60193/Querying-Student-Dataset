@@ -1,0 +1,13 @@
+@import 'primeicons/primeicons.css';
+
+.custom-tooltip-style.p-tooltip .p-tooltip-text {
+  background-color: black;
+  color: #fcfcfc !important;
+  font-size: 12px;
+  font-family: 'Inter', sans-serif;
+  padding: 8px !important;
+}
+
+body {
+  overflow: hidden; /* Hides the main page scrollbar and prevents scrolling */
+}

@@ -1,0 +1,40 @@
+th {
+	font-family: "Inter", sans-serif !important;
+	font-optical-sizing: auto;
+	font-size: 14px !important;
+	font-weight: 400 !important;
+	line-height: 20px;
+	color: #8c8c8c !important;
+
+	border-bottom-width: 1px !important;
+	border-bottom-color: #2a2a2a !important;
+	text-align: center !important;
+}
+
+td {
+	font-family: "Inter", sans-serif !important;
+    font-optical-sizing: auto;
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    line-height: 20px;
+    vertical-align: baseline;
+    color: #e5e2e1 !important;
+
+    border-bottom: none;
+
+    padding-top: 16px !important;
+    padding-bottom: 16px !important;
+
+    width: 15%;
+    min-width: 124px;
+    text-align: center !important;
+}
+
+.export-button {
+	cursor: pointer;
+}
+
+.caption-buttons{
+	display: flex;
+	gap: 10px;
+}

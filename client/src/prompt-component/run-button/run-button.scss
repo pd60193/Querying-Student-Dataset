@@ -1,0 +1,35 @@
+/* The Run Button Styling */
+.run-btn {
+  --p-button-padding-x: 12px !important; /* Example: set primary color to green */
+  --p-button-padding-y: 0px !important; /* Example: remove button shadow */
+  /* Color transition on hover is built-in to PrimeNG, 
+     but you can override colors here */
+  color-scheme: light dark;
+  background-color: #323232 !important;
+  border: 1px solid light-dark(#e1e1e1, #3e3e3e) !important;
+  border-radius: 12px;
+  height: 32px;
+
+  transition:
+    background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out,
+    color 0.15s ease-in-out,
+    box-shadow 0.1s ease-in-out;
+
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  font-family: 'Inter', sans-serif;
+  letter-spacing: normal;
+  color: #fcfcfc !important;
+
+  margin-right: 6px;
+  margin-bottom: 10px;
+
+  &:not([disabled]):hover {
+    background-color: #424242 !important;
+    color: #fcfcfc !important;
+  }
+  gap: 0px;
+  opacity: 0.9;
+}

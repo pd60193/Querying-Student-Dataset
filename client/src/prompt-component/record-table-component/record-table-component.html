@@ -1,0 +1,73 @@
+<p-table
+  #dt
+  [columns]="columns()"
+  [value]="promptStateService.records()"
+  [globalFilterFields]="globalFilterFields()"
+  [paginator]="true"
+  [rows]="5"
+  [rowsPerPageOptions]="[5, 10, 20, 100]"
+  [scrollable]="true"
+  scrollHeight="flex"
+  showGridlines
+  [tableStyle]="{ 'min-width': '50rem' }"
+>
+  <ng-template #caption>
+    <div class="caption-buttons flex gap-2">
+      <div class="text-end pb-4">
+        <p-button
+          class="export-button"
+          icon="pi pi-external-link"
+          label="Export"
+          (click)="dt.exportCSV()"
+        />
+      </div>
+      <div class="text-end pb-4">
+        <p-button
+          class="export-button"
+          icon="pi pi-filter"
+          [label]="enableFilteringButtonLabel()"
+          (click)="toggleFiltering()"
+        />
+      </div>
+      <div class="text-end pb-4">
+        <p-button label="Clear" [outlined]="true" icon="pi pi-filter-slash" (click)="clear(dt)" />
+      </div>
+      <p-iconfield iconPosition="left" class="ml-auto">
+        <p-inputicon>
+          <i class="pi pi-search"></i>
+        </p-inputicon>
+        <input
+          pInputText
+          type="text"
+          [(ngModel)]="searchValue"
+          (input)="dt.filterGlobal($event.target.value, 'contains')"
+          placeholder="Search keyword"
+        />
+      </p-iconfield>
+    </div>
+  </ng-template>
+
+  <ng-template #header let-columns>
+    <tr>
+      @for (col of columns; track col.field) {
+        <th [pSortableColumn]="col.field">
+          {{ col.header }}
+          <p-sortIcon [field]="col.field" />
+          @if (filteringEnabled()) {
+            <p-columnFilter type="text" [field]="col.field" display="menu" />
+          }
+        </th>
+      }
+    </tr>
+  </ng-template>
+
+  <ng-template #body let-rowData let-columns="columns">
+    <tr>
+      @for (col of columns; track col.field) {
+        <td>
+          {{ rowData[col.field] }}
+        </td>
+      }
+    </tr>
+  </ng-template>
+</p-table>

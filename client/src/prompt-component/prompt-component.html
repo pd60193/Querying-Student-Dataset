@@ -1,0 +1,23 @@
+<div class="page-container" [ngClass]="{ active: isInputActive }">
+	<div class="table-wrapper">
+		<app-record-table-component></app-record-table-component>
+	</div>
+	<div class="input-wrapper">
+		@if (promptState.error()) {
+			<div class="error-banner">
+				<p-message severity="error" [text]="promptState.error() ?? ''" variant="simple"></p-message>
+			</div>
+		}
+		<textarea
+			pTextarea
+			[(ngModel)]="promptText"
+			[autoResize]="true"
+			placeholder="Start typing a prompt"
+			(keydown)="handleKeydown($event)"
+			class="prompt-input"
+			rows="1"
+		>
+		</textarea>
+		<app-run-button (click)="onRunButtonClicked()"></app-run-button>
+	</div>
+</div>

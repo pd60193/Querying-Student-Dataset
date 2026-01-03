@@ -1,0 +1,79 @@
+.page-container {
+  height: 100vh;
+  width: 80%;
+  position: relative;
+  background-color: #191919;
+  overflow: hidden;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.table-wrapper {
+  height: 70vh;
+}
+
+.input-wrapper {
+  position: absolute;
+  left: 50%;
+  /* Start at vertical center */
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 50%; /* Adjust width as preferred */
+  min-width: 300px;
+
+  transition: all 0.5s ease-in-out; /* Smooth animation from center to bottom */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end; /* Aligns button to bottom of text area */
+  background-color: #252525 !important;
+  border-radius: 12px;
+  border: 1px solid #3e3e3e !important;
+  box-shadow:
+    0 4px 6px -1px rgba(10, 13, 18, 0.1),
+    0 2px 4px -2px rgba(10, 13, 18, 0.06) !important;
+}
+
+/* State: When user types, move to bottom */
+.page-container.active .input-wrapper {
+  top: 90%; /* Move towards bottom */
+  transform: translate(-50%, -100%);
+}
+
+/* The Text Area Styling */
+::ng-deep .prompt-input {
+  width: 100%;
+  /* Cap height at 25% of screen height */
+  max-height: 25vh;
+  /* Min height for aesthetics */
+  min-height: 50px;
+  /* Padding on right to prevent text going under the button */
+  padding-right: 50px;
+  /* Ensure scrollbar appears when max-height is reached */
+  overflow-y: auto !important;
+  border: 0px !important;
+  box-shadow: none !important;
+  background-color: #252525 !important;
+
+  font-family: 'Inter', sans-serif !important;
+  font-optical-sizing: auto;
+  font-size: 14px !important;
+  font-weight: 400;
+  line-height: 20px;
+  border: none;
+  outline: none;
+  color: #d4d4d4 !important;
+  opacity: 0.9;
+}
+
+::placeholder {
+  opacity: 0.6;
+  color: #a8abb4;
+  font-size: 14px;
+}
+
+.error-banner {
+  width: 100%;
+  padding: 8px;
+  border-bottom: 1px solid #3e3e3e;
+}

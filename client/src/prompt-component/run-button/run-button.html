@@ -1,0 +1,17 @@
+<button
+  pButton
+  class="run-btn"
+  [pTooltip]="tooltipContent()"
+  tooltipPosition="top"
+  tooltipStyleClass="custom-tooltip-style"
+  (click)="runButtonClicked()"
+  [disabled]="false"
+>
+  <span pButtonLabel>
+    @if (this.promptStateService.isRunning()) {
+      <app-spinner-component [radius]="10"></app-spinner-component> Stop
+    } @else {
+      Run &#8984; &#9166;
+    }
+  </span>
+</button>
