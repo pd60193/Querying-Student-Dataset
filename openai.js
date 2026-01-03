@@ -4,7 +4,7 @@ import OpenAI from "openai";
 
 // Instantiate an OpenAI client
 const client = new OpenAI({
-  apiKey: "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",
+  apiKey: "x",
 });
 
 const mysql_generation_instruction_prompt = dedent`
