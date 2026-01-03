@@ -1,0 +1,70 @@
+What are the count of the students broken down by their class and age?
+Which gender has a higher average Final Percentage?
+What is the average age of students who achieved an "Excellent" performance level?
+Which Class (9, 10, 11, or 12) has the highest average Final Percentage?
+Which Class has the highest failure rate?
+Are 14-year-olds performing better on average than 19-year-olds?
+What is the count of students in each Performance Level (Poor, Average, Good, Excellent)?
+What is the average Final Percentage for students aged 18?
+What is the average Final Percentage of students who study more than 5 hours a day?
+How many students failed despite studying more than 4 hours a day?
+What is the minimum attendance record of a student who still passed?
+What is the average score of students with < 60% attendance?
+Comparison of Math scores: Students studying >5 hours vs. <2 hours.
+How many students with 100% attendance failed?
+Does studying more hours correlate better with Math scores or English scores?
+Do students with "Postgraduate" parents have higher averages than those with "High School" parents?
+What is the failure rate among students whose parents have a "High School" education level?
+Which parental education group has the highest percentage of "Excellent" students?
+Comparison of average Math scores based on Parental Education levels.
+Are students with "Graduate" parents more likely to participate in extracurricular activities?
+Which Performance Level is most common for students with "Graduate" parents?
+Is there a link between Parental Education and student Attendance Percentage?
+How many students with "High School" educated parents achieved a Final Percentage > 90?
+Do students with Internet Access perform better on average?
+What is the failure rate for students without Internet Access?
+Does having Internet Access correlate with higher Study Hours?
+Do students involved in Extracurricular Activities have lower or higher grades?
+What is the average attendance of students involved in Extracurricular Activities?
+Is there a "distraction factor"? (Students with Internet + Extracurriculars vs. Grades).
+What percentage of students have both Internet Access and Extracurricular Activities?
+Which subject (Math, Science, English) has the highest overall average score?
+How many students scored 100 in Math?
+How many students passed Math but failed Science?
+Correlation between Math Score and Science Score (do they move together?)
+Who dominates English scores: Males or Females?
+What is the average Math score for Class 12 students?
+How many students scored below 40 in all three subjects?
+Are Science scores generally higher in Class 9 or Class 12?
+What is the standard deviation of Math scores (how spread out are they)?
+How many students improved their score compared to the Previous Year?
+What is the average decline in scores for students who performed worse this year?
+Did students who failed the previous year manage to pass this year?
+Which student had the biggest comeback (lowest prev score to highest current score)?
+How many students maintained the exact same score range (+/- 1%)?
+Who is the student with the highest Final Percentage?
+Find the student with the lowest study hours who achieved "Excellent".
+Find the student with the highest study hours who received "Poor".
+Who is the youngest student in Class 12?
+List students with 100 in Math and Science but < 60 in English.
+Identify students with < 60% Attendance but an "Excellent" status.
+Identify students with 100% Attendance but a "Fail" status.
+Which student ID has the largest gap between Math and English scores?
+Average score of Females in Class 10 with Internet Access?
+Failure rate of Males in Class 12 with no Extracurriculars?
+Count of "Excellent" students with "High School" parents and "No" Internet.
+Average study hours of students who scored > 90 in Math and Science.
+Average Science score of students with > 90 Previous Year Score and > 5 Study Hours.
+Percentage of students who study < 2 hours, have no internet, but passed.
+Compare Final Percentage: Males with Extracurriculars vs. Females without.
+Ratio of "Excellent" to "Poor" among students with Postgraduate parents.
+In Class 12, does having internet access make a bigger difference than in Class 9?
+What is the most common Performance Level in Class 10?
+Top 3 performing students in Class 10.
+Which Class studies the most hours per day on average?
+Attendance patterns: Is senioritis real? (Class 12 attendance vs others).
+Failure distribution: Which class contributes the most to the total failed students?
+Bottom 3 performing students in Class 11?
+The "All-Rounder" Count: Students with >80 in Math, Science, and English.
+Do girls with Postgraduate parents perform better than boys with Postgraduate parents?
+ Profile of the "Average Excellent Student" (Average Age, Study Hours, Attendance, and Parent Ed of all Excellent students)
