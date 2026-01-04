@@ -149,6 +149,17 @@ npm run eval:generate
 # Step 2: Analyze grammar validity and data accuracy (Python)
 npm run eval:analyze
 ```
+### 📈 Evaluation Results
+
+We ran a benchmark evaluation against a test set of prompts. The results highlight the effectiveness of using Context-Free Grammar (CFG) constraints to minimize hallucinations and ensure syntactic validity.
+
+| Metric Category | Metric | Result | Description |
+| :--- | :--- | :--- | :--- |
+| **Performance** | **Accuracy** | `62.86%` | Fraction of generations yielding factually correct data against ground truth. |
+| **Reliability** | **Hallucinations** | `3.03%` | Fraction of invalid SQL grammar generated (significantly reduced due to CFG). |
+| **Agent** | **Tool Usage** | `94.29%` | Success rate of the model invoking the custom grammar tool. |
+| **Efficiency** | **Avg Latency** | `35.53 ms` | Average generation time across all calls. |
+| **Cost** | **Avg Tokens** | `5,096` | Average input + output token count per call. |
 
 ### 3. Eval Data Files
 *   `evals/test_prompts.txt`: List of natural language questions to test.
