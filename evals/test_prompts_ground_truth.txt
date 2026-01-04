@@ -1,0 +1,70 @@
+SELECT class, age, COUNT(student_id) AS student_count FROM Student_Performance_Dataset GROUP BY class, age;
+SELECT gender, AVG(final_percentage) AS avg_final_percentage FROM Student_Performance_Dataset GROUP BY gender
+SELECT AVG(age) AS average_age FROM Student_Performance_Dataset WHERE performance_level = 'Excellent';
+SELECT AVG(final_percentage) AS avg_final_percentage, class FROM Student_Performance_Dataset GROUP BY class
+SELECT class, SUM(CASE WHEN pass_fail = 'Fail' THEN 1 ELSE 0 END) / COUNT(*) AS failure_rate FROM Student_Performance_Dataset GROUP BY class ORDER BY failure_rate DESC LIMIT 1;
+SELECT age, AVG(final_percentage) AS avg_final_percentage FROM Student_Performance_Dataset WHERE age = 14 OR age = 19 GROUP BY age ORDER BY age;
+SELECT performance_level, COUNT(performance_level) AS level_count FROM Student_Performance_Dataset GROUP BY performance_level;
+SELECT AVG(final_percentage) FROM Student_Performance_Dataset WHERE age = 18;
+SELECT AVG(final_percentage) FROM Student_Performance_Dataset WHERE study_hours_per_day > 5;
+SELECT COUNT(pass_fail) FROM Student_Performance_Dataset WHERE pass_fail = 'Fail' AND study_hours_per_day > 4;
+SELECT MIN(attendance_percentage) AS min_attendance FROM Student_Performance_Dataset WHERE pass_fail = 'Pass';
+SELECT AVG(final_percentage) AS avg_final_percentage FROM Student_Performance_Dataset WHERE attendance_percentage < 60;
+SELECT 'Above 5 hours' AS study_hours_group, AVG(math_score) AS avg_math_score FROM STUDENT_PERFORMANCE_DATASET WHERE study_hours_per_day > 5 UNION ALL SELECT 'Less than 2 hours' AS study_hours_group, AVG(math_score) AS avg_math_score FROM STUDENT_PERFORMANCE_DATASET WHERE study_hours_per_day < 2;
+SELECT COUNT(student_id) AS failed_students_with_100_attendance FROM Student_Performance_Dataset WHERE attendance_percentage = 100 AND pass_fail = 'Fail';
+SELECT AVG(study_hours_per_day) AS mean_study_hours, AVG(math_score) AS mean_math_score, STDDEV_POP(study_hours_per_day) AS sd_study_hours, STDDEV_POP(math_score) AS sd_math_score, AVG(english_score) AS mean_english_score, STDDEV_POP(english_score) AS sd_english_score FROM Student_Performance_Dataset;
+zz
+SELECT SUM(pass_fail) FROM Student_Performance_Dataset WHERE parental_education = 'High School';
+SELECT parental_education, COUNT(*) FROM Student_Performance_Dataset WHERE performance_level='Excellent' GROUP BY parental_education;
+SELECT AVG(math_score) AS avg_math_score, parental_education FROM Student_Performance_Dataset GROUP BY parental_education;
+SELECT parental_education AS education_group, AVG(extracurricular_activities) AS participation_rate FROM Student_Performance_Dataset GROUP BY parental_education;
+SELECT performance_level, COUNT(student_id) AS count FROM Student_Performance_Dataset WHERE parental_education = 'Graduate' GROUP BY performance_level ORDER BY 2 DESC LIMIT 1;
+SELECT parental_education, AVG(attendance_percentage) AS avg_attendance FROM Student_Performance_Dataset GROUP BY parental_education ORDER BY avg_attendance_DESC_LIMIT_1_ACTUAL_PLACEHOLDER_PLACEHOLDER_5_DELAY_CHECK_SECONDS_0_DESCSISSING_0_SEMICOLON_WHOLE_THAN_END_BACKEND_0__SORRY_00SELECT.parental_education;
+SELECT COUNT(final_percentage) FROM Student_Performance_Dataset WHERE parental_education = 'High School' AND final_percentage > 90;
+
+SELECT AVG(pass_fail) FROM Student_Performance_Dataset WHERE internet_access = 'No';
+SELECT internet_access, AVG(study_hours_per_day) AS avg_study_hours FROM Student_Performance_Dataset GROUP BY internet_access;
+SELECT extracurricular_activities, AVG(final_percentage) AS avg_final_percentage, AVG(math_score) AS avg_math_score, AVG(english_score) AS avg_english_score, AVG(science_score) AS avg_science_score FROM Student_Performance_Dataset GROUP BY extracurricular_activities;
+SELECT AVG(attendance_percentage) AS avg_attendance FROM Student_Performance_Dataset WHERE extracurricular_activities = 'Yes';
+no
+
+SELECT AVG(math_score) AS avg_math, AVG(science_score) AS avg_science, AVG(english_score) AS avg_english FROM Student_Performance_Dataset;
+SELECT COUNT(math_score) AS total_students_with_100_in_math FROM Student_Performance_Dataset WHERE math_score = 100;
+SELECT COUNT(student_id) AS count_passed_math_and_failed_science FROM Student_Performance_Dataset WHERE math_score >= 50 AND science_score < 50;
+no
+no
+SELECT AVG(math_score) AS avg_math_score FROM Student_Performance_Dataset WHERE class = 12;
+SELECT COUNT(student_id) AS total_students FROM Student_Performance_Dataset WHERE math_score < 40 AND science_score < 40 AND english_score < 40;
+SELECT class, AVG(science_score) AS avg_science_score FROM Student_Performance_Dataset GROUP BY class ORDER BY class ASC;
+SELECT STD(math_score) AS std_dev_math_score FROM Student_Performance_Dataset;
+SELECT COUNT(final_percentage) AS improved_students FROM Student_Performance_Dataset WHERE final_percentage > previous_year_score;
+SELECT AVG(previous_year_score) AS avg_previous_year, AVG(final_percentage) AS avg_final_percentage FROM Student_Performance_Dataset WHERE final_percentage < previous_year_score;
+hall
+jj
+SELECT COUNT(final_percentage) FROM Student_Performance_Dataset WHERE final_percentage = previous_year_score;
+SELECT student_id, final_percentage FROM Student_Performance_Dataset ORDER BY final_percentage DESC LIMIT 1;
+SELECT student_id, study_hours_per_day, performance_level FROM Student_Performance_Dataset WHERE performance_level = 'Excellent' ORDER BY study_hours_per_day ASC LIMIT 1;
+SELECT student_id, study_hours_per_day FROM Student_Performance_Dataset WHERE performance_level = 'Poor' ORDER BY study_hours_per_day DESC LIMIT 1;
+SELECT student_id, age FROM Student_Performance_Dataset WHERE class = 12 ORDER BY age ASC LIMIT 1;
+SELECT student_id, math_score, science_score, english_score FROM Student_Performance_Dataset WHERE math_score = 100 AND science_score = 100 AND english_score < 60;
+SELECT student_id, attendance_percentage, performance_level FROM Student_Performance_Dataset WHERE attendance_percentage < 60 AND performance_level = 'Excellent';
+SELECT student_id, attendance_percentage, pass_fail FROM Student_Performance_Dataset WHERE attendance_percentage = 100 AND pass_fail = 'Fail';
+SELECT student_id FROM Student_Performance_Dataset ORDER BY ABS_math_score_english_score_DESC_LIMIT_1_.internet_access LIMIT 1;
+SELECT AVG(final_percentage) AS average_final_percentage FROM Student_Performance_Dataset WHERE gender = 'Female' AND class = 10 AND internet_access = 'Yes';
+SELECT pass_fail, COUNT(pass_fail) AS count FROM Student_Performance_Dataset WHERE gender = 'Male' AND class = 12 AND extracurricular_activities = 'No' GROUP BY pass_fail;
+SELECT COUNT(student_id) AS excellent_highschool_no_internet_count FROM Student_Performance_Dataset WHERE internet_access = 'No' AND parental_education = 'High School' AND performance_level = 'Excellent';
+SELECT AVG(study_hours_per_day) AS avg_study_hours FROM Student_Performance_Dataset WHERE math_score > 90 AND science_score > 90;
+SELECT AVG(science_score) AS average_science_score FROM Student_Performance_Dataset WHERE previous_year_score > 90 AND study_hours_per_day > 5;
+yy
+SELECT gender, extracurricular_activities, AVG(final_percentage) AS avg_final_percentage FROM Student_Performance_Dataset GROUP BY gender;
+no
+xx
+SELECT performance_level, COUNT(performance_level) AS occurrences FROM Student_Performance_Dataset WHERE class = 10 GROUP BY performance_level ORDER BY 2 DESC LIMIT 1;
+SELECT student_id, final_percentage FROM Student_Performance_Dataset WHERE class = 10 ORDER BY final_percentage DESC LIMIT 3;
+no
+SELECT class, AVG(attendance_percentage) AS avg_attendance FROM Student_Performance_Dataset GROUP BY class ORDER BY class;
+no
+SELECT student_id, class, final_percentage FROM Student_Performance_Dataset WHERE class = 11 ORDER BY final_percentage ASC LIMIT 3;
+SELECT COUNT(student_id) AS All_Rounder_Count FROM Student_Performance_Dataset WHERE math_score > 80 AND science_score > 80 AND english_score > 80;
+SELECT gender, AVG(final_percentage) AS avg_final_percentage FROM Student_Performance_Dataset WHERE parental_education = 'Postgraduate' AND gender = 'Female' OR gender = 'Male' GROUP BY gender;
+SELECT AVG(age) AS average_age, AVG(study_hours_per_day) AS average_study_hours_per_day, AVG(attendance_percentage) AS average_attendance, parental_education FROM Student_Performance_Dataset WHERE performance_level = 'Excellent' GROUP BY parental_education ORDER BY parental_education;

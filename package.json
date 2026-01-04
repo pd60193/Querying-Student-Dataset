@@ -1,0 +1,23 @@
+{
+  "name": "raindrop-express-app",
+  "version": "1.0.0",
+  "description": "Natural language to SQL generation service",
+  "type": "module",
+  "main": "app.js",
+  "scripts": {
+    "start": "./run.sh",
+    "eval:generate": "node evals/generate_metrics.js",
+    "eval:analyze": "python3 evals/eval.py",
+    "eval:all": "npm run eval:generate && npm run eval:analyze"
+  },
+  "dependencies": {
+    "@clickhouse/client": "^1.0.0",
+    "dedent": "^1.5.1",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.0",
+    "openai": "^4.28.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

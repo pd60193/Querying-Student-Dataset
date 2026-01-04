@@ -6,7 +6,7 @@ aggregation_expr: AGGREGATION_FUNCTION"("COLUMN")"
 select_column:  (COLUMN | aggregation_expr | "*") [SP "AS" SP ALIAS]
 select_expr: select_column ("," SP select_column)* 
 
-table_names: STUDENT_PERFOMANCE_DATASET | STUDENT_FAMILY_INCOME_DATASET
+table_names: STUDENT_PERFORMANCE_DATASET
 
 table_references: table_reference [COMMA SP table_reference]
 
@@ -57,7 +57,7 @@ comparison: comparison SP "IS" SP [NOT SP] NULL
   | [ALIAS"."]YES_NO_COLUMNS SP COMPARISON_OPERATOR SP YES_NO_VALUES
   | [ALIAS"."]GENDER_COLUMN SP COMPARISON_OPERATOR SP GENDER_VALUES
   | [ALIAS"."]PARENTAL_EDUCATION_COLUMN SP COMPARISON_OPERATOR SP PARENTAL_EDUCATION_VALUES
-  | [ALIAS"."]PERFOMANCE_LEVEL_COLUMN SP COMPARISON_OPERATOR SP PERFOMANCE_LEVEL_VALUES
+  | [ALIAS"."]PERFORMANCE_LEVEL_COLUMN SP COMPARISON_OPERATOR SP PERFORMANCE_LEVEL_VALUES
   | [ALIAS"."]PASS_FAIL_COLUMN SP COMPARISON_OPERATOR SP PASS_FAIL_VALUES
   | [ALIAS"."]REGULAR_COLUMN SP COMPARISON_OPERATOR SP expr
   | comparison SP COMPARISON_OPERATOR SP expr
@@ -72,7 +72,7 @@ COMPARISON_OPERATOR: (">" | "<" | "=" | "!=" | ">=" | "<=" | "<=>")
 YES_NO_COLUMNS: [ALIAS"."]("internet_access" | "extracurricular_activities")
 GENDER_COLUMN: [ALIAS"."]"gender" 
 PARENTAL_EDUCATION_COLUMN: [ALIAS"."]"parental_education" 
-PERFOMANCE_LEVEL_COLUMN: [ALIAS"."]"perfomance_level" 
+PERFORMANCE_LEVEL_COLUMN: [ALIAS"."]"performance_level" 
 PASS_FAIL_COLUMN: [ALIAS"."]"pass_fail" 
 
 REGULAR_COLUMN: [ALIAS"."]("student_id" 
@@ -86,16 +86,15 @@ REGULAR_COLUMN: [ALIAS"."]("student_id"
     | "previous_year_score"
     | "final_percentage")
 
-COLUMN: REGULAR_COLUMN | YES_NO_COLUMNS | GENDER_COLUMN | PARENTAL_EDUCATION_COLUMN | PERFOMANCE_LEVEL_COLUMN | PASS_FAIL_COLUMN
+COLUMN: REGULAR_COLUMN | YES_NO_COLUMNS | GENDER_COLUMN | PARENTAL_EDUCATION_COLUMN | PERFORMANCE_LEVEL_COLUMN | PASS_FAIL_COLUMN
 
-YES_NO_VALUES: ("\"Yes\"" | "\"No\"")
-GENDER_VALUES: ("\"Male\"" | "\"Female\"")
-PARENTAL_EDUCATION_VALUES: ("\"Graduate\"" | "\"High School\"" | "\"Postgraduate\"")
-PERFOMANCE_LEVEL_VALUES: ("\"Good\"" | "\"Average\"" | "\"Excellent\"" | "\"Poor\"")
-PASS_FAIL_VALUES: ("\"Pass\"" | "\"Fail\"")
+YES_NO_VALUES: ("'Yes'" | "'No'")
+GENDER_VALUES: ("'Male'" | "'Female'")
+PARENTAL_EDUCATION_VALUES: ("'Graduate'" | "'High School'" | "'Postgraduate'")
+PERFORMANCE_LEVEL_VALUES: ("'Good'" | "'Average'" | "'Excellent'" | "'Poor'")
+PASS_FAIL_VALUES: ("'Pass'" | "'Fail'")
 
-STUDENT_PERFOMANCE_DATASET: "Student_Performance_Dataset"
-STUDENT_FAMILY_INCOME_DATASET: "Student_Family_Income_Dataset"
+STUDENT_PERFORMANCE_DATASET: "Student_Performance_Dataset"
 
 FILENAME: IDENTIFIER(".csv" | ".txt")
 IDENTIFIER: /[a-zA-Z_][A-Za-z0-9_]*/
@@ -125,5 +124,5 @@ AGGREGATION_FUNCTION: "AVG"
     | "SUM"
     | "COUNT"
     | "STD"
-    | "STDDEV"
+    | "STDDEV_POP"
     | "VARIANCE"

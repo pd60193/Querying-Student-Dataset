@@ -1,0 +1,4 @@
+lark
+clickhouse-connect
+pandas
+python-dotenv
