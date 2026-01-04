@@ -2,6 +2,14 @@ import 'dotenv/config';
 import { generateQuery } from '../services/openai.js';
 import { mysql_grammar } from '../services/grammar.js';
 import { writeFile, readFile } from 'node:fs/promises';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+const resolvePath = (file) => path.join(__dirname, file);
+
 
 async function writeToFile(filename, data) {
 	try {
@@ -47,8 +55,8 @@ function extractMetrics(response, prompt) {
 }
 
 async function runGen() {
-	const promptsFile = 'test_prompts.txt';
-	const outputFile = 'metrics.json';
+	const promptsFile = resolvePath('test_prompts.txt');
+    const outputFile = resolvePath('metrics.json');
 
 	let prompts = [];
 	try {
@@ -69,13 +77,13 @@ async function runGen() {
 		try {
 			const response = await generateQuery(prompt, mysql_grammar, true /* eval mode is true */);
 			const metrics = extractMetrics(response, prompt);
+			metricsList.push(metrics);
+			process.stdout.clearLine();
+			process.stdout.cursorTo(0);
 		} catch (error) {
 			console.log(error);
 			metricsList.push({ status: 'GENERATION_FAILED' });
 		}
-		metricsList.push(metrics);
-		process.stdout.clearLine();
-		process.stdout.cursorTo(0);
 	}
 	await writeToFile(outputFile, JSON.stringify(metricsList, null, 2));
 	console.log(`\nMetrics saved to ${outputFile}`);
