@@ -1,12 +1,40 @@
+// ==========================================
+// 1. ENTRY POINT & MAIN STATEMENT
+// ==========================================
+
 start: select_statement
 
 select_statement: "SELECT" [ALL | DISTINCT | DISTINCTROW] SP select_expr SP "FROM" SP table_references [SP where_clause] [SP groupby_clause] [SP having_clause] [SP orderby_clause] [SP limit_clause] [SP into_option](";")
 
-aggregation_expr: AGGREGATION_FUNCTION"("COLUMN")"
-select_column:  (COLUMN | aggregation_expr | "*") [SP "AS" SP ALIAS]
+// ==========================================
+// 2. CLAUSES (WHERE, GROUP BY, ORDER BY, ETC)
+// ==========================================
+
+where_clause: "WHERE" SP expr
+
+groupby_clause: "GROUP BY" SP (COLUMN | expr | COLUMN_POSITION)
+
+having_clause: "HAVING" SP expr
+
+limit_clause: "LIMIT" SP NUMBER
+
+orderby_clause: "ORDER BY" SP (COLUMN | expr | COLUMN_POSITION) [SP ORDER_BY_TYPE]
+
+into_option: "INTO OUTFILE" SP FILENAME
+
+// ==========================================
+// 3. COLUMNS & AGGREGATIONS
+// ==========================================
+
 select_expr: select_column ("," SP select_column)* 
 
-table_names: STUDENT_PERFORMANCE_DATASET
+select_column:  (COLUMN | aggregation_expr | "*") [SP "AS" SP ALIAS]
+
+aggregation_expr: AGGREGATION_FUNCTION"("COLUMN")"
+
+// ==========================================
+// 4. TABLES & JOINS
+// ==========================================
 
 table_references: table_reference [COMMA SP table_reference]
 
@@ -25,18 +53,9 @@ join_specification: "ON" SP expr
 
 join_column_list: COLUMN [COMMA SP COLUMN]*
 
-
-where_clause: "WHERE" SP expr
-
-groupby_clause: "GROUP BY" SP (COLUMN | expr | COLUMN_POSITION)
-
-having_clause: "HAVING" SP expr
-
-limit_clause: "LIMIT" SP NUMBER
-
-orderby_clause: "ORDER BY" SP (COLUMN | expr | COLUMN_POSITION) [SP ORDER_BY_TYPE]
-
-into_option: "INTO OUTFILE" SP FILENAME
+// ==========================================
+// 5. EXPRESSIONS, CONDITIONS & COMPARISONS
+// ==========================================
 
 condition: comparison (SP ("AND" | "OR") SP comparison)*
 
@@ -64,16 +83,20 @@ comparison: comparison SP "IS" SP [NOT SP] NULL
   | PREDICATE
   | [ALIAS"."]REGULAR_COLUMN
 
-    
-PREDICATE: (NUMBER | STRING)
+// ==========================================
+// 6. DATASET / SCHEMA SPECIFICS
+// ==========================================
 
-COMPARISON_OPERATOR: (">" | "<" | "=" | "!=" | ">=" | "<=" | "<=>")
+table_names: STUDENT_PERFORMANCE_DATASET
 
-YES_NO_COLUMNS: [ALIAS"."]("internet_access" | "extracurricular_activities")
-GENDER_COLUMN: [ALIAS"."]"gender" 
-PARENTAL_EDUCATION_COLUMN: [ALIAS"."]"parental_education" 
-PERFORMANCE_LEVEL_COLUMN: [ALIAS"."]"performance_level" 
-PASS_FAIL_COLUMN: [ALIAS"."]"pass_fail" 
+STUDENT_PERFORMANCE_DATASET: "Student_Performance_Dataset"
+
+COLUMN: REGULAR_COLUMN 
+    | YES_NO_COLUMNS 
+    | GENDER_COLUMN 
+    | PARENTAL_EDUCATION_COLUMN 
+    | PERFORMANCE_LEVEL_COLUMN 
+    | PASS_FAIL_COLUMN
 
 REGULAR_COLUMN: [ALIAS"."]("student_id" 
     | "age" 
@@ -86,7 +109,13 @@ REGULAR_COLUMN: [ALIAS"."]("student_id"
     | "previous_year_score"
     | "final_percentage")
 
-COLUMN: REGULAR_COLUMN | YES_NO_COLUMNS | GENDER_COLUMN | PARENTAL_EDUCATION_COLUMN | PERFORMANCE_LEVEL_COLUMN | PASS_FAIL_COLUMN
+YES_NO_COLUMNS: [ALIAS"."]("internet_access" | "extracurricular_activities")
+GENDER_COLUMN: [ALIAS"."]"gender" 
+PARENTAL_EDUCATION_COLUMN: [ALIAS"."]"parental_education" 
+PERFORMANCE_LEVEL_COLUMN: [ALIAS"."]"performance_level" 
+PASS_FAIL_COLUMN: [ALIAS"."]"pass_fail" 
+
+// --- Value Constraints (Enums) ---
 
 YES_NO_VALUES: ("'Yes'" | "'No'")
 GENDER_VALUES: ("'Male'" | "'Female'")
@@ -94,29 +123,9 @@ PARENTAL_EDUCATION_VALUES: ("'Graduate'" | "'High School'" | "'Postgraduate'")
 PERFORMANCE_LEVEL_VALUES: ("'Good'" | "'Average'" | "'Excellent'" | "'Poor'")
 PASS_FAIL_VALUES: ("'Pass'" | "'Fail'")
 
-STUDENT_PERFORMANCE_DATASET: "Student_Performance_Dataset"
-
-FILENAME: IDENTIFIER(".csv" | ".txt")
-IDENTIFIER: /[a-zA-Z_][A-Za-z0-9_]*/
-ALIAS: IDENTIFIER
-NUMBER: /[0-9]+(\.[0-9]+)?/
-STRING: /".*?"/
-NULL: "NULL"
-SP: " "
-QUANTITY : ("ALL" | "DISTINCT" | "DISTINCTROW")
-OR: "OR"
-AND: "AND"
-XOR: "XOR"
-NOT: "NOT"
-
-ALL: "ALL"
-DISTINCT: "DISTINCT"
-DISTINCTROW: "DISTINCTROW"
-
-// FOR 16 columns
-COLUMN_POSITION: /[1-16]+/ 
-COMMA: ","
-ORDER_BY_TYPE: ("ASC" | "DESC")
+// ==========================================
+// 7. TERMINALS & PRIMITIVES
+// ==========================================
 
 AGGREGATION_FUNCTION: "AVG" 
     | "MIN"
@@ -126,3 +135,27 @@ AGGREGATION_FUNCTION: "AVG"
     | "STD"
     | "STDDEV_POP"
     | "VARIANCE"
+
+COMPARISON_OPERATOR: (">" | "<" | "=" | "!=" | ">=" | "<=" | "<=>")
+ORDER_BY_TYPE: ("ASC" | "DESC")
+QUANTITY : ("ALL" | "DISTINCT" | "DISTINCTROW")
+
+PREDICATE: (NUMBER | STRING)
+FILENAME: IDENTIFIER(".csv" | ".txt")
+IDENTIFIER: /[a-zA-Z_][A-Za-z0-9_]*/
+ALIAS: IDENTIFIER
+NUMBER: /[0-9]+(\.[0-9]+)?/
+STRING: /".*?"/
+COLUMN_POSITION: /[1-16]+/ 
+NULL: "NULL"
+
+OR: "OR"
+AND: "AND"
+XOR: "XOR"
+NOT: "NOT"
+ALL: "ALL"
+DISTINCT: "DISTINCT"
+DISTINCTROW: "DISTINCTROW"
+
+SP: " "
+COMMA: ","
