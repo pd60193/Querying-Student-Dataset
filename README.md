@@ -10,6 +10,20 @@ This is a full-stack web application that allows users to query a ClickHouse/Tin
 *   **Live Data:** Queries a **Tinybird** (ClickHouse) backend in real-time.
 *   **Evaluation Pipeline:** Includes a suite of tools to measure model latency, token usage, grammar validity, and result accuracy against a ground truth dataset.
 
+## 📸 User Interface
+
+The interface is designed for simplicity and efficiency in dark mode.
+
+| **Query Results** | **Advanced Filtering** |
+|:---:|:---:|
+| ![Query Results](screenshots/dashboard_results.png) | ![Filtering](screenshots/dashboard_filtering.png) |
+| *View SQL results in a paginated table* | *Sort and filter specific columns easily* |
+
+| **Processing State** |
+|:---:|
+| ![Processing](screenshots/dashboard_loading.png) |
+| *Real-time loading feedback with cancellation support* |
+
 ## 🛠️ Architecture
 
 *   **Frontend:** Angular 18+, PrimeNG, SCSS.
