@@ -67,4 +67,4 @@ Failure distribution: Which class contributes the most to the total failed stude
 Bottom 3 performing students in Class 11?
 The "All-Rounder" Count: Students with >80 in Math, Science, and English.
 Do girls with Postgraduate parents perform better than boys with Postgraduate parents?
- Profile of the "Average Excellent Student" (Average Age, Study Hours, Attendance, and Parent Ed of all Excellent students)
+Profile of the "Average Excellent Student" (Average Age, Study Hours, Attendance, and Parent Ed of all Excellent students)
