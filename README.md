@@ -32,6 +32,13 @@ The interface is designed for simplicity and efficiency in dark mode.
 *   **Database:** Tinybird (ClickHouse).
 *   **Evaluations:** Python (Pandas, Lark) and Node.js.
 
+## 📚 Dataset
+
+The application and grammar rules are currently configured for the **Student Performance Dataset**.
+
+*   **Source:** [Kaggle - Student Performance Dataset](https://www.kaggle.com/datasets/suvidyasonawane/student-performance-dataset)
+*   **Context:** The `mysql_grammar.lark` file is specifically tailored to the schema of this CSV (columns like `math_score`, `parental_education`, `attendance_percentage`, etc.). To use a different dataset, you must update the column definitions in the grammar file.
+
 ---
 
 ## 📋 Prerequisites
