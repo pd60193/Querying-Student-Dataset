@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { DataRecord, PromptRequest } from './shared/types';
 
 // TODO: Put this in environment.ts
-const API_URL = 'http://localhost:3000/api/query';
+const API_URL = 'https://querying-student-dataset.onrender.com/api/query';
 
 @Injectable({
   providedIn: 'root',
